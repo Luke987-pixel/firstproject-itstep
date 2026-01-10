@@ -1,0 +1,374 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('fonts/LibreBaskerville-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+$primary-color: #000;
+$accent-color: #d94626;
+$bg-color: #f8f8f8;
+$text-color: #666;
+$font-heading: 'Playfair Display', serif;
+$font-body: 'Libre Baskerville', serif;
+$transition-speed: 0.3s;
+$menu-transition: 0.4s;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-body;
+    background-color: $bg-color;
+    overflow-x: hidden;
+    padding-top: 100px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 60px;
+    background-color: $bg-color;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    .logo {
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin: 0;
+            font-family: $font-heading;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: $text-color;
+            margin: 3px 0 0 0;
+            font-family: $font-body;
+        }
+    }
+}
+
+.hamburger {
+    position: fixed;
+    top: 30px;
+    right: 60px;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+
+    span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: $primary-color;
+        margin: 6px 0;
+        transition: $transition-speed;
+    }
+
+    &.active {
+        span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        span:nth-child(2) {
+            opacity: 0;
+        }
+
+        span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+    }
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: $accent-color;
+    z-index: 999;
+    transition: right $menu-transition ease;
+    padding: 100px 60px;
+
+    &.active {
+        right: 0;
+    }
+
+    nav {
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin: 30px 0;
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 2.5rem;
+                    font-weight: 300;
+                    transition: opacity $transition-speed;
+                    font-family: $font-heading;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.side-menu-contact {
+    margin-top: 80px;
+
+    p {
+        color: #fff;
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.portfolio-grid {
+    padding: 0 60px 60px 60px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform $transition-speed ease;
+    }
+
+    &:hover img {
+        transform: scale(1.05);
+    }
+
+    &.portfolio-small {
+        height: 300px;
+    }
+
+    &.portfolio-large {
+        height: 500px;
+    }
+
+    &.portfolio-xlarge {
+        height: 650px;
+    }
+
+    &.portfolio-medium {
+        height: 350px;
+    }
+}
+
+.portfolio-title {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: $font-heading;
+}
+
+footer {
+    padding: 60px;
+    background-color: $bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    margin: 0;
+    color: $text-color;
+}
+
+footer a {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bio-section,
+.clients-section,
+.direct-section {
+    padding: 80px 60px;
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-family: $font-heading;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+}
+
+.bio-section p {
+    max-width: 600px;
+}
+
+.contact-section {
+    padding: 80px 60px;
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-family: $font-heading;
+    }
+}
+
+.contact-form {
+    max-width: 600px;
+
+    .form-group {
+        margin-bottom: 30px;
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid $primary-color;
+            padding: 10px 0;
+            background-color: transparent;
+            font-size: 1rem;
+            font-family: $font-body;
+
+            &:focus {
+                outline: none;
+                border-bottom: 2px solid $primary-color;
+            }
+        }
+    }
+}
+
+.submit-btn {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 15px 60px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: $font-body;
+    transition: background-color $transition-speed;
+
+    &:hover {
+        background-color: #333;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+
+    header {
+        padding: 20px 30px;
+    }
+
+    header .logo h1 {
+        font-size: 1.8rem; // Smaller on mobile
+    }
+
+    .hamburger {
+        right: 30px;
+        top: 25px;
+    }
+
+    .portfolio-grid,
+    footer,
+    .bio-section,
+    .clients-section,
+    .direct-section,
+    .contact-section {
+        padding: 30px;
+    }
+
+    .portfolio-item {
+        &.portfolio-small {
+            height: 200px;
+        }
+
+        &.portfolio-large {
+            height: 300px;
+        }
+
+        &.portfolio-xlarge {
+            height: 400px;
+        }
+
+        &.portfolio-medium {
+            height: 250px;
+        }
+    }
+
+    .portfolio-title {
+        font-size: 1.2rem;
+    }
+
+    .side-menu {
+        width: 100%;
+        right: -100%;
+
+        nav ul li a {
+            font-size: 2rem;
+        }
+    }
+
+    .bio-section h2,
+    .clients-section h2,
+    .direct-section h2,
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+}

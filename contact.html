@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Samuel Obi</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Samuel Obi</h1>
+            <p>Architecture Photographer</p>
+        </div>
+    </header>
+
+    <div class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="side-menu" id="sideMenu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="bio.html">Bio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="side-menu-contact">
+            <p><a href="mailto:info@mysite.com">info@mysite.com</a></p>
+            <p>123-456-7890</p>
+            <p>Instagram <a href="#">@SamuelObi</a></p>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>Contact</h2>
+        <p>Representation / <strong>Robertson Agency</strong></p>
+        <p><a href="mailto:info@mysite.com">info@mysite.com</a></p>
+
+        <form class="contact-form" style="margin-top: 60px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Last Name *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Write a message</label>
+                <textarea rows="5"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

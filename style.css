@@ -1,0 +1,321 @@
+@font-face {
+  font-family: "Playfair Display";
+  src: url("fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("fonts/PlayfairDisplay-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  src: url("fonts/LibreBaskerville-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  src: url("fonts/LibreBaskerville-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Libre Baskerville", serif;
+  background-color: #f8f8f8;
+  overflow-x: hidden;
+  padding-top: 160px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 60px;
+  background-color: #f8f8f8;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+header .logo h1 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+header .logo p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 3px 0 0 0;
+  font-family: "Libre Baskerville", serif;
+}
+
+.hamburger {
+  position: fixed;
+  top: 30px;
+  right: 60px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hamburger i {
+  font-size: 1.8rem;
+  color: #000;
+  transition: 0.3s;
+}
+.hamburger.active i {
+  color: #fff;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background-color: #d94626;
+  z-index: 999;
+  transition: right 0.4s ease;
+  padding: 100px 60px;
+}
+.side-menu.active {
+  right: 0;
+}
+.side-menu nav ul {
+  list-style: none;
+  padding: 0;
+}
+.side-menu nav ul li {
+  margin: 30px 0;
+}
+.side-menu nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-weight: 300;
+  transition: opacity 0.3s;
+  font-family: "Playfair Display", serif;
+}
+.side-menu nav ul li a:hover {
+  opacity: 0.7;
+}
+
+.side-menu-contact {
+  margin-top: 80px;
+}
+.side-menu-contact p {
+  color: #fff;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+.side-menu-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.portfolio-grid {
+  padding: 60px 80px 120px 80px;
+}
+.portfolio-grid .row {
+  --bs-gutter-y: 3rem;
+  --bs-gutter-x: 80px;
+}
+
+.portfolio-card {
+  margin-bottom: 80px;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+.portfolio-item.portfolio-small {
+  height: 300px;
+}
+.portfolio-item.portfolio-large {
+  height: 500px;
+}
+.portfolio-item.portfolio-xlarge {
+  height: 650px;
+}
+.portfolio-item.portfolio-medium {
+  height: 350px;
+}
+
+.portfolio-title {
+  margin-top: 25px;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Playfair Display", serif;
+}
+
+footer {
+  padding: 60px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+  margin: 0;
+  color: #666;
+}
+
+footer a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.bio-section,
+.clients-section,
+.direct-section {
+  padding: 80px 60px;
+}
+.bio-section h2,
+.clients-section h2,
+.direct-section h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-family: "Playfair Display", serif;
+}
+.bio-section p,
+.clients-section p,
+.direct-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.bio-section p {
+  max-width: 600px;
+}
+
+.contact-section {
+  padding: 80px 60px;
+}
+.contact-section h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-family: "Playfair Display", serif;
+}
+
+.contact-form {
+  max-width: 600px;
+}
+.contact-form .form-group {
+  margin-bottom: 30px;
+}
+.contact-form .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 10px 0;
+  background-color: transparent;
+  font-size: 1rem;
+  font-family: "Libre Baskerville", serif;
+}
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #000;
+}
+
+.submit-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 15px 60px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Libre Baskerville", serif;
+  transition: background-color 0.3s;
+}
+.submit-btn:hover {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+  header {
+    padding: 20px 30px;
+  }
+  header .logo h1 {
+    font-size: 1.8rem;
+  }
+  .hamburger {
+    right: 30px;
+    top: 25px;
+  }
+  .portfolio-grid,
+  footer,
+  .bio-section,
+  .clients-section,
+  .direct-section,
+  .contact-section {
+    padding: 30px;
+  }
+  .portfolio-item.portfolio-small {
+    height: 200px;
+  }
+  .portfolio-item.portfolio-large {
+    height: 300px;
+  }
+  .portfolio-item.portfolio-xlarge {
+    height: 400px;
+  }
+  .portfolio-item.portfolio-medium {
+    height: 250px;
+  }
+  .portfolio-title {
+    font-size: 1.2rem;
+  }
+  .side-menu {
+    width: 100%;
+    right: -100%;
+  }
+  .side-menu nav ul li a {
+    font-size: 2rem;
+  }
+  .bio-section h2,
+  .clients-section h2,
+  .direct-section h2,
+  .contact-section h2 {
+    font-size: 2rem;
+  }
+}
