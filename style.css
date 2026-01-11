@@ -1,27 +1,5 @@
-@font-face {
-  font-family: "Playfair Display";
-  src: url("fonts/PlayfairDisplay-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Playfair Display";
-  src: url("fonts/PlayfairDisplay-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Libre Baskerville";
-  src: url("fonts/LibreBaskerville-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Libre Baskerville";
-  src: url("fonts/LibreBaskerville-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -44,20 +22,67 @@ header {
   background-color: #f8f8f8;
   z-index: 100;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header .logo h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   font-weight: 400;
   margin: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Bodoni Moda", serif;
 }
 header .logo p {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: #666;
-  margin: 3px 0 0 0;
+  margin: 5px 0 0 0;
   font-family: "Libre Baskerville", serif;
 }
+header .logo a {
+  text-decoration: none;
+  color: inherit;
+}
+header .logo a h1 {
+  color: #000;
+}
+header .logo a p {
+  color: #666;
+}
 
+/* Desktop Navigation */
+.desktop-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+.desktop-nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-family: "Libre Baskerville", serif;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.desktop-nav ul li a:hover {
+  color: #d94626;
+}
+.desktop-nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #d94626;
+  transition: width 0.3s ease;
+}
+.desktop-nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger - hidden on desktop, visible on mobile */
 .hamburger {
   position: fixed;
   top: 30px;
@@ -66,7 +91,7 @@ header .logo p {
   height: 40px;
   cursor: pointer;
   z-index: 1000;
-  display: flex;
+  display: none; /* Hidden on desktop */
   align-items: center;
   justify-content: center;
 }
@@ -106,7 +131,7 @@ header .logo p {
   font-size: 2.5rem;
   font-weight: 300;
   transition: opacity 0.3s;
-  font-family: "Playfair Display", serif;
+  font-family: "Bodoni Moda", serif;
 }
 .side-menu nav ul li a:hover {
   opacity: 0.7;
@@ -135,12 +160,21 @@ header .logo p {
 
 .portfolio-card {
   margin-bottom: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+.portfolio-card:hover .portfolio-item img {
+  transform: scale(1.05);
+}
+.portfolio-card:hover .portfolio-title {
+  color: #d94626;
 }
 
 .portfolio-item {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 .portfolio-item img {
   width: 100%;
@@ -148,9 +182,6 @@ header .logo p {
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
-}
-.portfolio-item:hover img {
-  transform: scale(1.05);
 }
 .portfolio-item.portfolio-small {
   height: 300px;
@@ -170,14 +201,15 @@ header .logo p {
   margin-bottom: 0;
   font-size: 1.5rem;
   font-weight: 400;
-  font-family: "Playfair Display", serif;
+  font-family: "Bodoni Moda", serif;
+  transition: color 0.3s ease;
 }
 
 footer {
   padding: 60px;
   background-color: #f8f8f8;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-top: 1px solid #e0e0e0;
 }
@@ -204,7 +236,7 @@ footer a {
   font-size: 3rem;
   margin-bottom: 30px;
   font-weight: 400;
-  font-family: "Playfair Display", serif;
+  font-family: "Bodoni Moda", serif;
 }
 .bio-section p,
 .clients-section p,
@@ -224,7 +256,7 @@ footer a {
   font-size: 3rem;
   margin-bottom: 30px;
   font-weight: 400;
-  font-family: "Playfair Display", serif;
+  font-family: "Bodoni Moda", serif;
 }
 
 .contact-form {
@@ -268,6 +300,206 @@ footer a {
   background-color: #333;
 }
 
+/* Project Page Styles */
+.project-page {
+  padding: 60px 80px 120px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.project-header {
+  margin-bottom: 60px;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: "Bodoni Moda", serif;
+  margin-bottom: 40px;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  gap: 20px;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #666;
+  min-width: 80px;
+}
+
+.info-value {
+  font-size: 0.9rem;
+  color: #b8860b;
+}
+
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.gallery-hero {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-hero:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-row {
+  display: flex;
+  gap: 40px;
+}
+
+.gallery-half {
+  flex: 1;
+  overflow: hidden;
+}
+
+.gallery-half img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-half:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-full {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-full img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-full:hover img {
+  transform: scale(1.05);
+}
+
+/* Taller gallery variants for Bridge page */
+.gallery-half-tall img {
+  height: 650px;
+}
+
+.gallery-full-xl img {
+  min-height: 600px;
+  object-fit: cover;
+}
+
+/* SkyMine HQ gallery variants */
+.gallery-row-skymine {
+  align-items: stretch;
+}
+
+.gallery-narrow {
+  flex: 0 0 30%;
+  overflow: hidden;
+}
+
+.gallery-narrow img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-narrow:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-wide {
+  flex: 1;
+  overflow: hidden;
+}
+
+.gallery-wide img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-wide:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-full-xxl img {
+  min-height: 700px;
+  object-fit: cover;
+}
+
+/* Sonnenberg Center gallery variants */
+.gallery-row-sonnenberg {
+  align-items: stretch;
+}
+
+.gallery-wide-alt {
+  flex: 0 0 60%;
+  overflow: hidden;
+}
+
+.gallery-wide-alt img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-wide-alt:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-narrow-alt {
+  flex: 1;
+  overflow: hidden;
+}
+
+.gallery-narrow-alt img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-narrow-alt:hover img {
+  transform: scale(1.05);
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   body {
     padding-top: 80px;
@@ -278,7 +510,13 @@ footer a {
   header .logo h1 {
     font-size: 1.8rem;
   }
+  /* Hide desktop nav on mobile */
+  .desktop-nav {
+    display: none;
+  }
+  /* Show hamburger on mobile */
   .hamburger {
+    display: flex;
     right: 30px;
     top: 25px;
   }
@@ -317,5 +555,49 @@ footer a {
   .direct-section h2,
   .contact-section h2 {
     font-size: 2rem;
+  }
+  /* Project page responsive */
+  .project-page {
+    padding: 30px;
+  }
+  .project-title {
+    font-size: 1.8rem;
+  }
+  .gallery-row {
+    flex-direction: column;
+  }
+  .gallery-half img {
+    height: 250px;
+  }
+  .gallery-half-tall img {
+    height: 350px;
+  }
+  .gallery-full-xl img {
+    min-height: 400px;
+  }
+  /* SkyMine responsive */
+  .gallery-row-skymine {
+    flex-direction: column;
+  }
+  .gallery-narrow {
+    flex: 1;
+  }
+  .gallery-narrow img,
+  .gallery-wide img {
+    height: 300px;
+  }
+  .gallery-full-xxl img {
+    min-height: 450px;
+  }
+  /* Sonnenberg responsive */
+  .gallery-row-sonnenberg {
+    flex-direction: column;
+  }
+  .gallery-wide-alt {
+    flex: 1;
+  }
+  .gallery-wide-alt img,
+  .gallery-narrow-alt img {
+    height: 280px;
   }
 }

@@ -23,3 +23,24 @@ document.addEventListener('click', (e) => {
         hamburgerIcon.classList.add('fa-bars');
     }
 });
+
+// Scroll reveal animation
+const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+if (scrollRevealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    scrollRevealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+}
