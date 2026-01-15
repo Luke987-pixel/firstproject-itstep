@@ -24,7 +24,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Scroll reveal animation
 const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
 
 if (scrollRevealElements.length > 0) {
